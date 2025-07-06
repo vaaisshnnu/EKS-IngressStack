@@ -151,6 +151,7 @@ mkdir app1 app2 app3
 Each app directory contains:
 
 * `index.html` – A creative HTML page
+* Code for App1- inde.html[https://github.com/vaaisshnnu/EKS-IngressStack/blob/main/APP1%20-%20Index.html]
 * `Dockerfile` – Builds image using nginx base
 
 ### Example Dockerfile (Same for all apps):

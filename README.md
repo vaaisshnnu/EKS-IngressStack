@@ -154,6 +154,15 @@ Each app directory contains:
 * Code for App1- inde.html[https://github.com/vaaisshnnu/EKS-IngressStack/blob/main/APP1%20-%20Index.html]
 * `Dockerfile` – Builds image using nginx base
 
+🔗 Quick Access to html files
+
+[app1-Index.html](https://github.com/vaaisshnnu/EKS-IngressStack/blob/main/APP1%20-%20Index.html)
+
+[app2-Index.html](https://github.com/vaaisshnnu/EKS-IngressStack/blob/main/APP2%20-%20Index.html)
+
+[app3-Index.html](https://github.com/vaaisshnnu/EKS-IngressStack/blob/main/APP3%20-%20Index.html)
+
+
 ### Example Dockerfile (Same for all apps):
 
 ```Dockerfile
@@ -194,6 +203,15 @@ cd k8s
 
 * `app1-deploy.yaml`, `app2-deploy.yaml`, `app3-deploy.yaml` — contain Deployment and NodePort Service for each app
 * `ingress.yaml` — routes traffic to respective services
+
+🔗 Quick Access to YAML Deployment Files:
+
+[app1-deploy.yaml](https://github.com/vaaisshnnu/EKS-IngressStack/blob/main/Deployment%20%26%20Service%20YML%20for%20APP1)
+
+[app2-deploy.yaml](https://github.com/vaaisshnnu/EKS-IngressStack/blob/main/Deployment%20%26%20Service%20YML%20for%20APP2)
+
+[app3-delpoy.yaml](https://github.com/vaaisshnnu/EKS-IngressStack/blob/main/Deployment%20%26%20Service%20YML%20for%20APP3)
+
 
 ### Apply the manifests:
 

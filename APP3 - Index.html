@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>App 3 - Ingress Demo</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background: radial-gradient(circle at top left, #1e3c72, #2a5298);
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-image: url('https://kubernetes.io/images/favicon.png');
+      background-repeat: repeat;
+      background-size: 80px 80px;
+      opacity: 0.04;
+      z-index: 0;
+    }
+
+    .card {
+      position: relative;
+      z-index: 1;
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 16px;
+      padding: 50px 30px;
+      max-width: 600px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+      backdrop-filter: blur(10px);
+      animation: fadeInZoom 1.2s ease;
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      color: #ffffffee;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.25);
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: #ffffffcc;
+      line-height: 1.6;
+    }
+
+    .signature {
+      margin-top: 30px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.9);
+      letter-spacing: 1px;
+      border-top: 1px solid rgba(255,255,255,0.3);
+      padding-top: 15px;
+      animation: slideUp 1.8s ease;
+    }
+
+    @keyframes fadeInZoom {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>🌊 Welcome to App 3</h1>
+    <p>This is App 3 — clean, responsive, and smartly routed using Kubernetes Ingress on AWS EKS.</p>
+    <div class="signature">🔧 Buildby-GangaVaishnuReddy • Powered by Kubernetes</div>
+  </div>
+</body>
+</html>

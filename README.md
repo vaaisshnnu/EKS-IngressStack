@@ -319,6 +319,50 @@ Ensure EC2 Security Group allows ports 80 & 443 (HTTP/HTTPS)
 
 ## 📸 Architecture Diagram (Provided separately below)
 
+
+                        +---------------------+
+                        |     IAM User        |
+                        |---------------------|
+                        | AWS CLI Configured  |
+                        +---------------------+
+                                 |
+                                 v
+                 +--------------------------------+
+                 |        EC2 Instance            |
+                 |  (Docker, AWS CLI, kubectl)    |
+                 +--------------------------------+
+                                 |
+                                 v
+                   +------------------------------+
+                   |        eksctl                |
+                   |  Create EKS Cluster          |
+                   +------------------------------+
+                                 |
+                                 v
+       +-------------------------- AWS EKS Cluster ---------------------------+
+       |                                                                      |
+       |   +-------------------+     +-------------------+     +------------+ |
+       |   |  Node Group       |     |  Node Group       |     |  Ingress   | |
+       |   |  (t2.medium)      |     |  (t2.medium)      |     | Controller | |
+       |   +-------------------+     +-------------------+     +------------+ |
+       |            |                          |                         |    |
+       |            v                          v                         |    |
+       |   +----------------+        +----------------+                  |    |
+       |   | App1 Deployment|        | App2 Deployment|    <-------------+    |
+       |   | + Service      |        | + Service      |    Routes based on   |
+       |   +----------------+        +----------------+    /app1 /app2 /app3  |
+       |            |                          |                               |
+       |            v                          v                               |
+       |   Dockerized via                    Dockerized via                   |
+       |   nginx + HTML                      nginx + HTML                     |
+       +---------------------------------------------------------------------+
+
+                        Access via:
+        http://<Ingress-LoadBalancer-DNS>/app1
+        http://<Ingress-LoadBalancer-DNS>/app2
+        http://<Ingress-LoadBalancer-DNS>/app3
+
+
 ---
 
 > Happy Cloud Building! 🚀

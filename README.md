@@ -34,6 +34,8 @@ A complete end-to-end setup of deploying multiple static applications using Dock
 ```
 
 ---
+Note : Ubuntu O.S was utilized here in this setup hence the commands are related to Ubuntu Operation System
+---
 
 ## 🛠️ Step-by-Step Setup
 

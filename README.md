@@ -34,10 +34,10 @@ A complete end-to-end setup of deploying multiple static applications using Dock
 ```
 
 ---
-Note : Ubuntu O.S was utilized here in this setup hence the commands are related to Ubuntu Operation System
----
 
 ## 🛠️ Step-by-Step Setup
+
+Note : Ubuntu O.S was utilized here in this setup hence the commands are related to Ubuntu Operation System Package Manager (apt)
 
 ### 🔧 1. Update and Upgrade Packages
 
@@ -111,6 +111,22 @@ sudo chmod 666 /var/run/docker.sock # Sets Docker socket permissions
 chmod +x installdocker.sh install-kubectl.sh install-awscli.sh install-ekscli.sh
 ```
 
+(Opitional) Create a shell file to get the version of all installed software 
+
+```bash
+vi verify-installtions.sh
+```
+
+```bash
+#!/bin/bash
+echo "Git version is            : $(git --version)"
+echo "kubectl version is        : $(kubectl version --short --client)"
+echo "AWS CLI version is        : $(aws --version)"
+echo "eksctl version is         : $(eksctl version)"
+echo "Docker version is         : $(docker --version)"
+echo "Docker Compose version is : $(docker-compose version --short)"
+```
+
 ---
 
 ## 🔐 7. AWS IAM Setup
@@ -118,11 +134,17 @@ chmod +x installdocker.sh install-kubectl.sh install-awscli.sh install-ekscli.sh
 * Create IAM user
 * Attach the following policies:
 
-  * `AdministratorAccess`
   * `AmazonEC2FullAccess`
   * `AmazonVPCFullAccess`
   * `AWSCloudFormationFullAccess`
   * `IAMFullAccess`
+  * `AmazonEKS_CNI_Policy`
+  * `AmazonEKSClusterPolicy`
+  * `AmazonEKSWorkerNodePolicy`
+
+  Instead of selecting all the policies you can try giving  Admin access to the user (But it's not recommended in real time)
+  
+  * `AdministratorAccess`
 * Save Access Key & Secret Key or download the `.csv`
 
 ### ⚙️ 8. AWS Configure on EC2
